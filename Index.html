@@ -9,17 +9,19 @@
 
 <body>
     <header>
-        <a href="Index.html" class="logo">Maple Store</a>
+        <div class="header-right" style="float: left;">
+            <a href="Index.html" class="logo">Maple Store</a>
+        </div>
+
         <div class="header-right">
             <a href="Carrinho.html">Carrinho</a>
         </div>
 
-        
-
-        <button class="header-right" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+        <div class="header-right" onclick="document.getElementById('id01').style.display='block'">
+            <a>Login</a>
+        </div>
 
         <div id="id01" class="modal">
-
             <form class="modal-content animate">
                 <div class="imgcontainer">
                     <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
@@ -52,12 +54,10 @@
                     <label for="senha"><b>Senha:</b></label>
                     <input type="password" placeholder="Digite sua senha" id="senha" required>
                         
-                    <button type="submit" id="saveButton" onclick="save()">Salvar</button>
-                    
-                </div>
-
-                <div class="container" style="background-color:#f1f1f1">
                     <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                    
+                    <button class="saveButton" type="submit" id="saveButton" onclick="save()">Salvar</button>
+                    
                 </div>
             </form>
         </div>
