@@ -283,7 +283,7 @@ span.psw {
 
 .cookie-container{
   position: fixed;
-  bottom: 0;
+  bottom: -100%;
   left: 0;
   right: 0;
   background: #2f3640;
