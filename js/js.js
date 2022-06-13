@@ -16,7 +16,7 @@ function save(){
     var complemento = document.getElementById('complemento').value
     var senha = document.getElementById('senha').value
 
-    if(!validaCPF()){
+    if(!validaCPF(CPF)){
         alert("CPF FUDEO TUDO")
         return false
     }
@@ -95,37 +95,57 @@ function pesquisacep() {
 }
 
 
+const cookieContainer = document.querySelector(".cookie-container");
+const cookieButton = document.querySelector(".cookie-button");
+console.log(cookieContainer)
+
+setTimeout(()=> {
+    if(!(getCookie("cookieDisplayed") == "true")){
+        console.log(getCookie("cookieDisplayed"))
+        cookieContainer.classList.add("active");
+    }
+}, 2000);
+
+cookieButton.addEventListener("click", () => {
+    console.log("on clcick")
+    checkCookie()
+    document.cookie = "cookieDisplayed = true"
+    cookieContainer.classList.remove("active");
+});
+
+
+
 
 function setCookie(cname, cvalue, exdays) {
     const d = new Date();
     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
     let expires = "expires="+d.toUTCString();
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-  }
+}
   
-  function getCookie(cname) {
+function getCookie(cname) {
     let name = cname + "=";
     let ca = document.cookie.split(';');
     for(let i = 0; i < ca.length; i++) {
-      let c = ca[i];
-      while (c.charAt(0) == ' ') {
-        c = c.substring(1);
-      }
-      if (c.indexOf(name) == 0) {
-        return c.substring(name.length, c.length);
-      }
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
     }
     return "";
-  }
+}
   
-  function checkCookie() {
+function checkCookie() {
     let user = getCookie("username");
     if (user != "") {
-      alert("Welcome again " + user);
+        alert("Welcome again " + user);
     } else {
-      user = prompt("Please enter your name:", "");
-      if (user != "" && user != null) {
-        setCookie("username", user, 365);
-      }
+        user = prompt("Please enter your name:", "");
+        if (user != "" && user != null) {
+            setCookie("username", user, 365);
+        }
     }
-  }
+}

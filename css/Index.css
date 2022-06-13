@@ -79,7 +79,6 @@ li a:hover, li a:focus
 }
 H1 
 {
-    padding: 0px 8px;
     font-size: 25px;
 }
 H2
@@ -94,6 +93,9 @@ H1 a
     display: block;
     color: #000;
     overflow: auto;
+    width: 100%;
+    padding: 8px 8px;
+    
 }
 H1 a:hover, H1 a:focus
 {
@@ -277,4 +279,32 @@ span.psw {
   .cancelbtn {
      width: 100%;
   }
+}
+
+.cookie-container{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #2f3640;
+  color: #f5f6fa;
+  padding: 16px 32px;
+  box-shadow: 0 -2px 16px hsla(215, 15%, 22%, 0.158);
+  transition: 400ms;
+  z-index: 2;
+}
+
+.cookie-container.active{
+  bottom : 0;
+}
+
+.cookie-button{
+  background: #e84118;
+  border: 0;
+  color: #f5f6fa;
+  padding: 12px 48px;
+  margin-top: 8px;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;  
 }
